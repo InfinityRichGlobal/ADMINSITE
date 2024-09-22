@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ai V8 เครื่องมืออัจฉริยะ</title>
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap');
+
+        :root {
+            --primary-color: #00c8ff;
+            --secondary-color: #0080ff;
+            --bg-color: #FFFFFF;
+            --text-color: #000000;
+            --container-bg: #FFFFFF;
+            --input-bg: #FFFFFF;
+            --border-color: #475569;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Prompt', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 200, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 128, 255, 0.1) 0%, transparent 20%);
+            background-attachment: fixed;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: var(--container-bg);
+            border-radius: 20px;
+            box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            text-shadow: 0 0 2px rgba(0, 200, 255, 0.5);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .user-info {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .user-info img {
+            border-radius: 50%;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
+            margin-top: 1rem;
+            max-width: 120px;
+            height: auto;
+        }
+
+        .user-info p {
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            width: 100%;
+        }
+
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.1);
+
+        }
+
+.image-link {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.image-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+        .button-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+        .button-container button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem  0.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 14px;
+            width: 100%;
+            max-width: 150px;
+        }
+
+        .button-container button:hover {
+            transform: scale(1.1);
+            background-color: red;
+        }
+
+        .divider {
+            grid-column: 1 / -1;
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 1rem 0;
+        }
+
+
+
+
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .image-link img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .button-container button {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="user-info">
+            <img id="pictureUrl" alt="User Profile" width="120" height="120"> 
+            <p id="displayName"></p>
+        </div>
+        
+        <h1>ADMIN SITEMAP<br>เครื่องมืออัจฉริยะ</h1>
+        
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="https://cdn-icons-gif.flaticon.com/14164/14164973.gif" alt="Clickable Image" class="image-link">
+                <div class="button-container">
+                    <button onclick="window.location.href='https://infinityrichglobal.github.io/Card/ZOOM.html'">สร้างการ์ดประกาศคลาส</button>
+                </div>
+            </div>
+            
+<!--                         <div class="grid-item">
+                <img src="https://cdn-icons-gif.flaticon.com/14447/14447697.gif" alt="Clickable Image" class="image-link">
+                <div class="button-container">
+                    <button onclick="window.location.href='https://infinityrichglobal.github.io/Card/'">ส่งการ์ดสถานะนักเรียน</button>
+                </div>
+            </div>
+            
+                        <div class="grid-item">
+                <img src="https://cdn-icons-gif.flaticon.com/16104/16104537.gif" alt="Clickable Image" class="image-link">
+                <div class="button-container">
+                    <button onclick="window.location.href='https://infinityrichglobal.github.io/Card/Bank.html'">ส่งการ์ดบัญชีรับเงิน</button>
+                </div>
+            </div>
+
+     
+
+
+            <div class="grid-item">
+                <img src="https://cdn-icons-gif.flaticon.com/14984/14984806.gif" alt="Clickable Image" class="image-link">
+                <div class="button-container">
+                    <button onclick="window.location.href='https://infinityrichglobal.github.io/Card/profiles.html'">ส่งการ์ดแนะนำตัว</button>
+                </div>
+            </div>
+        </div> -->
+
+                <h1> <br> </h1>
+    </div>
+
+    <script>
+    const LIFF_ID = "2006070736-AN1rzPyB"; // แทนที่ด้วย LIFF ID ของคุณ
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwmCAAs6KXOYye3qexpgobroYdgpdhBbypWHkCwlGnlx8auzQAmhATZEXQ5ABQyn5M/exec"; // แทนที่ด้วย URL ของ Apps Script ที่เผยแพร่
+    
+    let flexMessages = {};
+
+    // Initialize LIFF
+    liff.init({ liffId: LIFF_ID })
+        .then(() => {
+            console.log("LIFF Initialized");
+            if (liff.isLoggedIn()) {
+                runApp();
+            } else {
+                liff.login();
+            }
+        })
+        .catch((err) => {
+            console.log("LIFF Initialization failed:", err);
+        });
+
+    function runApp() {
+        liff.getProfile().then(profile => {
+            document.getElementById("pictureUrl").src = profile.pictureUrl;
+            document.getElementById("displayName").innerHTML = '<b>ยินดีต้อนรับคุณ:</b> ' + profile.displayName;
+        }).catch(err => console.error(err));
+
+       
+    }
+
+    function fetchFlexMessages() {
+        fetch(APPS_SCRIPT_URL)
+            .then(response => response.json())
+            .then(data => {
+                flexMessages = data;
+                console.log("Fetched Flex Messages:", flexMessages);
+                document.getElementById('groupSelect').disabled = false;
+                document.getElementById('groupSelect').dispatchEvent(new Event('change'));
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('ไม่สามารถโหลดข้อมูล Flex Messages ได้');
+            });
+    }
+
+    document.getElementById('groupSelect').addEventListener('change', () => {
+        const selectedGroup = document.getElementById('groupSelect').value;
+        const flexSelect = document.getElementById('flexSelect');
+        flexSelect.innerHTML = '<option value="-1" selected>-- เลือกข้อความ --</option>';
+
+        if (selectedGroup > 0) {
+            const groupMessages = flexMessages['group' + selectedGroup] || [];
+            groupMessages.forEach((flexMessage, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.text = `${flexMessage.id}: ${flexMessage.altText}`;
+                flexSelect.add(option);
+            });
+            flexSelect.disabled = false;
+        } else {
+            flexSelect.disabled = true;
+            document.getElementById('previewContainer').style.display = 'none';
+        }
+    });
+
+    document.getElementById('flexSelect').addEventListener('change', updatePreview);
+
+
+    function updatePreview() {
+        const selectedGroup = document.getElementById('groupSelect').value;
+        const selectedIndex = document.getElementById('flexSelect').value;
+        const previewContainer = document.getElementById('previewContainer');
+        const bubbleContent = document.getElementById('bubbleContent');
+        const shareBtn = document.getElementById('shareBtn');
+
+        if (selectedIndex >= 0) {
+            const groupMessages = flexMessages['group' + selectedGroup] || [];
+            const flexMessage = groupMessages[selectedIndex];
+            if (flexMessage && flexMessage.contents) {
+                previewContainer.style.display = 'block';
+                bubbleContent.innerHTML = createBubbleHTML(flexMessage.contents);
+                shareBtn.disabled = false;
+            } else {
+                previewContainer.style.display = 'none';
+                shareBtn.disabled = true;
+            }
+        } else {
+            previewContainer.style.display = 'none';
+            shareBtn.disabled = true;
+        }
+    }
+
+    function createBubbleHTML(contents) {
+        let html = '';
+        if (contents.type === 'bubble') {
+            const header = contents.header || {};
+            const hero = contents.hero || {};
+            const body = contents.body || {};
+            const footer = contents.footer || {};
+
+            html += `<div style="background-color: ${header.backgroundColor || '#ffffff'}; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">`;
+            
+            if (hero.url) {
+                html += `<img src="${hero.url}" style="width: 100%; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">`;
+            }
+
+            if (header.contents && header.contents.length > 0) {
+                html += `<h2 style="color: ${header.contents[0].color || '#000000'};">${header.contents[0].text}</h2>`;
+            }
+
+            if (body.contents) {
+                body.contents.forEach(item => {
+                    html += `<p style="color: ${item.color || '#000000'};">${item.text}</p>`;
+                });
+            }
+
+            if (footer.contents && footer.contents.length > 0) {
+                footer.contents.forEach(item => {
+                    html += `<button style="color: ${item.color || '#000000'}; background-color: ${item.style || '#00ffff'};">${item.text}</button>`;
+                });
+            }
+
+            html += `</div>`;
+        }
+        return html;
+    }
+
+    document.getElementById('shareBtn').addEventListener('click', () => {
+        const selectedGroup = document.getElementById('groupSelect').value;
+        const selectedIndex = document.getElementById('flexSelect').value;
+        if (selectedIndex >= 0) {
+            const groupMessages = flexMessages['group' + selectedGroup] || [];
+            const flexMessage = groupMessages[selectedIndex];
+            if (flexMessage && flexMessage.contents) {
+                liff.shareTargetPicker([{
+                    type: 'flex',
+                    altText: flexMessage.altText,
+                    contents: flexMessage.contents
+                }])
+                .then(() => {
+                    console.log("Message shared");
+                })
+                .catch(error => {
+                    console.error("Error sharing message:", error);
+                    alert('ไม่สามารถแชร์ข้อความได้');
+                });
+            } else {
+                alert('ข้อความที่เลือกไม่ถูกต้อง');
+            }
+        }
+    });
+   </script>
+
+</body>
+
+
+</html>
